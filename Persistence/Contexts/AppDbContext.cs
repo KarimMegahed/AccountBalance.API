@@ -17,8 +17,8 @@ namespace AccountBalance.API.Persistence.Contexts
 
             builder.Entity<Customer>().HasData
             (
-                new Customer { CustomerId = 1000, Name = "Karim" , SurName = "Samir" }, // Id set manually due to in-memory provider
-                new Customer { CustomerId = 1001, Name = "Carlo", SurName = "Vanhoutte" }
+                new Customer { CustomerId = 1000, Name = "Karim" , SurName = "Megahed" }, // Id set manually due to in-memory provider
+                new Customer { CustomerId = 1001, Name = "Ahmed", SurName = "Mohammed" }
             );
             builder.Entity<Account>().HasData
             (
