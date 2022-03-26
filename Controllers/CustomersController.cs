@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc;
 using AccountBalance.API.Services;
 using AccountBalance.API.Dtos;
 
 namespace AccountBalance.API.Controllers
 {
-    [Route("/api/[controller]")]
+
     public class CustomersController : Controller
     {
         private readonly ICustomerService _customerService;
@@ -15,12 +15,13 @@ namespace AccountBalance.API.Controllers
         }
 
         [HttpGet]
+        [Route("Customers/GetAllCustomers")]
         public async Task<IEnumerable<CustomerDto>> GetAllAsync()
         {
             var customers = await _customerService.ListAsync();
             return customers;
         }
-        [HttpGet("{customerId}")]
+        [HttpGet("Customers/GetCustomerDetails/{customerId}")]
         public async Task<ActionResult<CustomerDto>> GetCustomerDetails(int customerId)
         {
             try
