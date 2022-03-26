@@ -5,8 +5,7 @@ using AccountBalance.API.Dtos;
 
 namespace AccountBalance.API.Controllers
 {
-    [Route("/api/[controller]")]
-    public class AccountsController : Controller
+   public class AccountsController : Controller
     {
         private readonly IAccountService _accountService;
 
@@ -16,12 +15,14 @@ namespace AccountBalance.API.Controllers
         }
 
         [HttpGet]
+        [Route("Accounts/GetAllAccounts")]
         public async Task<IEnumerable<AccountDto>> GetAllAsync()
         {
             var accounts = await _accountService.ListAsync();
             return accounts;
         }
         [HttpPost]
+        [Route("Accounts/CreateAccount")]
         public async Task<IActionResult> CreateAccount([FromBody] SaveAccountDto account)
         {
             if (!ModelState.IsValid)
